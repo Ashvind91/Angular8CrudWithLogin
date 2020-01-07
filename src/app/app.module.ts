@@ -18,6 +18,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [MatDatepickerModule,MatNativeDateModule],
   bootstrap: [AppComponent]

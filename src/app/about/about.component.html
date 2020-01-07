@@ -1,3 +1,7 @@
+
 <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="inputEvent($event)" (dateChange)="changeEvent($event)">
 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 <mat-datepicker #picker></mat-datepicker>
+
+<input [ngxTimepicker]="Timepicker">
+<ngx-material-timepicker #Timepicker></ngx-material-timepicker>
