@@ -19,19 +19,20 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       _id: [],
-      Name: ['', Validators.required],
+      Name: ['',  Validators.required],
       Designation: ['', Validators.required],
       Salary: ['', Validators.required]
     });
 
   }
-
+  get fval() {
+    return this.addForm.controls;
+    }
   onSubmit() {
     // stop here if form is invalid
    if (this.addForm.invalid) {
     return;
-}
-debugger;
+   }
     this._commonService.insertRecord(this.addForm.value)
       .subscribe( data => {
         this.router.navigate(['home']);
@@ -39,5 +40,9 @@ debugger;
   }
   onReset() {
     this.addForm.reset();
-}
+  }
+  onCancel()
+  {
+    this.router.navigate(['home']);
+  }
 }

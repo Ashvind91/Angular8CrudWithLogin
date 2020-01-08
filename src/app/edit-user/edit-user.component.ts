@@ -25,18 +25,23 @@ export class EditUserComponent implements OnInit {
       return;
     }
     this.editForm = this.formBuilder.group({
-      _id: [''],
+      _id: [{value:'' , disabled: true}],
       Name: ['', Validators.required],
       Designation: ['', Validators.required],
       Salary: ['', Validators.required]
     });
 
+   
     this._commonService.getItemById(userId)
       .subscribe( data => {        
         let getInfo=data['data'][0];
         this.editForm.patchValue(getInfo);
       });
   }
+
+  get fval() {
+    return this.editForm.controls;
+    }
   onSubmit() {
    // stop here if form is invalid
    if (this.editForm.invalid) {
@@ -46,7 +51,6 @@ export class EditUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          debugger;
           console.log(data);
           if(data !=null)
           {
@@ -65,6 +69,10 @@ export class EditUserComponent implements OnInit {
         error => {
           alert(error);
         });
+  }
+  onCancel()
+  {
+    this.router.navigate(['home']);
   }
 
 }

@@ -3,7 +3,7 @@
     <h2 style="margin: auto"> Login User: {{fullName}}</h2>
     <button class="btn btn-danger" style="width:100px" (click)="addUser()"> Add User</button>
     <button class="btn btn-danger" style="width:100px" (click)="logOut()"> LogOut User</button>
-<table class="table table-hover">  
+<!-- <table class="table table-hover">  
     <thead>  
     <tr>  
         <td>User Id</td>  
@@ -14,7 +14,7 @@
     </tr>  
     </thead>  
     <tbody>  
-        <tr *ngFor="let item of userlist;">  
+        <tr *ngFor="let item of userlist; | paginate: { itemsPerPage: 2, currentPage: p }">  
             <td>{{ item._id }}</td>  
             <td>{{ item.Name }}</td>  
             <td>{{ item.Designation }}</td>  
@@ -24,5 +24,37 @@
                 <button class="btn btn-success" (click)="deleteUser(item)"> Delete</button>                
         </tr>  
     </tbody>  
-  </table>  
+  </table>  -->
+
+  <!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    <table class="table table-bordered table-striped">
+          <thead>
+            <tr>  
+                <td>User Id</td>  
+                <td>User Name</td>  
+                <td>User Designation</td>  
+                <td>User Salary</td>  
+                <td>Action</td>  
+            </tr>  
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of userlist | paginate: { id: 'listing_pagination',
+                                                        itemsPerPage: 4,
+                                                        currentPage: page,
+                                                        totalItems: totalRec }">
+                                                        <td>{{ item._id }}</td>  
+                                                        <td>{{ item.Name }}</td>  
+                                                        <td>{{ item.Designation }}</td>  
+                                                        <td>{{ item.Salary }}</td> 
+                                                        <td>
+                                                            <button class="btn btn-success" (click)="editUser(item)"> Edit</button>
+                                                            <button class="btn btn-success" (click)="deleteUser(item)"> Delete</button> </td>
+          </tr>
+          </tbody>
+      </table>
+      <div>
+          <pagination-controls  id="listing_pagination" maxSize="4" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+      </div>
+  </div>
 </div>

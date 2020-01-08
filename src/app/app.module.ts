@@ -19,6 +19,9 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     AboutComponent,
     EditUserComponent,
     AddUserComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     NgbModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    NgxPaginationModule
   ],
   providers: [MatDatepickerModule,MatNativeDateModule],
   bootstrap: [AppComponent]

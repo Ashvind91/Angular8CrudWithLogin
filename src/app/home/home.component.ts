@@ -14,12 +14,13 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
   //parentMessage = "message from parent"
+  totalRec : number;
+  page: number = 1;
   userlist: any;
   fullName:string;
   constructor(private router: Router, private _commonService: CommonService) { }
 
-  ngOnInit() { 
-    debugger;
+  ngOnInit() {
     let token = localStorage.getItem('token'); 
     let UserInfo=JSON.parse(localStorage.getItem('currentUser'));
     if (token) {
@@ -34,7 +35,9 @@ export class HomeComponent implements OnInit {
  bindList()
  {
   this._commonService.getAllItems().subscribe(data => { 
+    console.log(data['data']);
     this.userlist=data['data'];
+    this.totalRec = this.userlist.length;
   })
  }
 
@@ -60,7 +63,6 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-  
   logOut()
   {
      // remove user from local storage to log user out
