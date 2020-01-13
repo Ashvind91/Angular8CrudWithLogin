@@ -63,6 +63,10 @@ export class HomeComponent implements OnInit {
       });
     }
   }
+  RedirectToInline()
+  {
+    this.router.navigate(['inline-edit']);
+  }
   logOut()
   {
      // remove user from local storage to log user out

@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import {EditUserComponent } from "./edit-user/edit-user.component";
 import {AddUserComponent } from "./add-user/add-user.component";
 import {LoginComponent } from "./login/login.component";
+import {InlineEditComponent } from "./inline-edit/inline-edit.component";
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'edit-user', component: EditUserComponent },  
   { path: 'add-user', component: AddUserComponent },
-  {path : 'login', component : LoginComponent,} 
+  {path : 'login', component : LoginComponent,} ,
+  {path : 'inline-edit', component : InlineEditComponent,} 
   
 ];
 

@@ -9,6 +9,8 @@ import { UserlistViewModel } from "../../common/models/userlist-view-model";
 })
 export class CommonService {  
   apiURL = Appsettings.API_ENDPOINT;
+  dialogData: any;
+
   constructor(private httpClient: HttpClient) { }
 
   options() {
@@ -53,5 +55,27 @@ login(userName: string)
 //         return header;
 //  }
 
+// Inline Angular Material Methods
+
+getDialogData() {
+  return this.dialogData;
+}
+
+addItem(item: UserlistViewModel): void {
+  this.httpClient.post(this.apiURL + '/api/insertRecord/',item).subscribe(data => {
+    this.dialogData = item;
+  });
+ }
+  // UPDATE, PUT METHOD
+   updateItem(item: UserlistViewModel): void {
+    this.httpClient.put(this.apiURL + '/api/updateRecord/',item).subscribe(data => {
+      this.dialogData = item;
+    });
+}
+// DELETE METHOD
+deleteItem(id: number): void {
+  this.httpClient.delete(this.apiURL + '/api/deleteRecord/' + id).subscribe(data => {
+  });
+}
 }
 
